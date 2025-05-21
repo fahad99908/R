@@ -26,12 +26,6 @@
                     </div>
                     <div class="card-side card-side-secondary"></div>
                 </div>
-                <body>
-
-  <audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-    متصفحك لا يدعم تشغيل الصوت.
-  </audio>
                 <div class="card-body">
                     <p>To my cutest person,</p>
                     <p>From the moment I first saw you, I knew I wanted to hold
@@ -44,6 +38,24 @@
             </div>
         </div>
         <div class="heart-seal"></div> </div>
+    <div class="heart-seal"></div> </div>
+
+<!-- 🎵 مشغل الموسيقى -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  متصفحك لا يدعم تشغيل الصوت.
+</audio>
+
+<!-- 🔘 زر التشغيل -->
+<div style="text-align: down; margin-down: 8px;">
+  <button onclick="document.getElementById('bgMusic').play()" style="padding: 5px 10px; font-size: 8px; cursor: pointer;">
+    🎵 شغل الموسيقى
+  </button>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
 
        <script  src="./script.js"></script>
 </body>
