@@ -1,44 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Day card</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Petemoss&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #ffcccb;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        h1 {
+            color: #ff1493;
+        }
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background-color: white;
+            border: 1px solid black;
+            position: relative;
+            margin: 30px 0;
+        }
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: #ff1493;
+            transform-origin: center;
+            clip-path: path('M15,0 C6.75,0 0,6.75 0,15 C0,30 15,30 15,30 C15,30 30,30 30,15 C30,6.75 23.25,0 15,0 Z');
+        }
+        .message {
+            margin-top: 20px;
+            max-width: 600px;
+        }
+        .audio-control {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .play-button {
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-button:hover {
+            background-color: #ff69b4;
+        }
+    </style>
 </head>
 <body>
+    <h1>Valentine's Day card</h1>
+    
     <div class="envelope">
-        <div class="envelope-lid"></div>
-        <div class="envelope-lid envelope-lid-secondary"></div>
-        <div class="card-wrapper">
-            <div class="card">
-                <div class="card-cover">
-                    <div class="card-side card-side-primary">
-                        <h1 class="card-title">
-                            <span class="card-title-secondary">to</span>
-                            <span class="card-title-main">my <span
-                                    class="card-title-apostrophe">❤️</span></span>
-                            <span class="card-title-secondary">angle</span>
-                        </h1>
-                    </div>
-                    <div class="card-side card-side-secondary"></div>
-                </div>
-                <div class="card-body">
-                    <p>To my cutest person,</p>
-                    <p>From the moment I first saw you, I knew I wanted to hold
-                        your hand forever. I really miss you  —
-                    </p>
-                    <p>i hope my massge makes you smile!
- 
-                    </p> FAHAD 
-                </div>
-            </div>
-        </div>
-        <div class="heart-seal"></div> </div>
-
-       <script  src="./script.js"></script>
+        <div class="heart"></div>
+    </div>
+    
+    <div class="message">
+        <p>To my cutest person,</p>
+        <p>From the moment I first saw you, I knew I wanted to hold your hand forever. I really miss you —</p>
+        <p>i hope my message makes you smile!</p>
+        <p>FAHAD</p>
+    </div>
+    
+    <div class="audio-control">
+        <button class="play-button" id="playButton">♫</button>
+        <span id="status">اضغط للاستماع</span>
+    </div>
+    
+    <audio id="bgMusic">
+        <!-- تم تعديل المسار ليشير إلى ملف الموسيقى الخاص بك -->
+        <source src="RPReplay_Final1747868104 (معدل) (mp3).mp3" type="audio/mpeg">
+        متصفحك لا يدعم عنصر الصوت.
+    </audio>
+    
+    <script>
+        const audio = document.getElementById('bgMusic');
+        const playButton = document.getElementById('playButton');
+        const status = document.getElementById('status');
+        
+        playButton.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                status.textContent = "جاري التشغيل...";
+            } else {
+                audio.pause();
+                status.textContent = "متوقف";
+            }
+        });
+        
+        audio.addEventListener('ended', function() {
+            status.textContent = "انتهى";
+        });
+    </script>
 </body>
 </html>
